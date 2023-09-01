@@ -247,20 +247,22 @@ function YFMDuelCalc() {
             </Col>
           ))}
         </InputGroup>
-        <FloatingLabel label={`${label}`}>
-          <Form.Control
-            style={{ height: '75px' }}
-            type="number"
-            min="0"
-            value={value}
-            onChange={(e) => onChange(id, parseInt(e.target.value))}
-            readOnly
-            isValid={isValid}
-          />
+        <InputGroup>
+          <FloatingLabel label={`${label}`}>
+            <Form.Control
+              style={{ height: '75px' }}
+              type="number"
+              min="0"
+              value={value}
+              onChange={(e) => onChange(id, parseInt(e.target.value))}
+              readOnly
+              isValid={isValid}
+            />
+          </FloatingLabel >
           <InputGroup.Text>{
             (calcPts(id) <= 0) ? calcPts(id) : "+" + calcPts(id)
           }</InputGroup.Text>
-        </FloatingLabel >
+        </InputGroup>
         <InputGroup>
           {lifePointIntervalsPos.map(interval => (
             <Col style={{ paddingLeft: '0', paddingRight: '0', display: 'flex', flexDirection: 'column' }}>
