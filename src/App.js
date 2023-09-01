@@ -15,7 +15,7 @@ function YFMDuelCalc() {
     equips: 0,
     faceDowns: 0,
     lifePoints: 8000,
-    cardsUsed: 0,
+    cardsRemaining: 40,
     turnsPassed: 0,
   };
 
@@ -28,7 +28,7 @@ function YFMDuelCalc() {
     equips: 0,
     faceDowns: 0,
     lifePoints: 8000,
-    cardsUsed: 0,
+    cardsRemaining: 40,
     turnsPassed: 0,
   });
 
@@ -82,84 +82,94 @@ function YFMDuelCalc() {
     var pts = 0;
     switch (key) {
       case 'turnsPassed':
-        if (values[key] <= 4) pts = +12;
-        else if (values[key] <= 8) pts = +8;
-        else if (values[key] <= 28) pts = 0;
-        else if (values[key] <= 32) pts = -8;
+        var turnsPassed = values[key];
+        if (turnsPassed <= 4) pts = +12;
+        else if (turnsPassed <= 8) pts = +8;
+        else if (turnsPassed <= 28) pts = 0;
+        else if (turnsPassed <= 32) pts = -8;
         else pts = -12;
         break;
 
       case 'effectiveAttacks':
-        if (values[key] <= 1) pts = +4;
-        else if (values[key] <= 3) pts = +2;
-        else if (values[key] <= 9) pts = 0;
-        else if (values[key] <= 19) pts = -2;
+        var effectiveAttacks = values[key];
+        if (effectiveAttacks <= 1) pts = +4;
+        else if (effectiveAttacks <= 3) pts = +2;
+        else if (effectiveAttacks <= 9) pts = 0;
+        else if (effectiveAttacks <= 19) pts = -2;
         else pts = -4;
         break;
 
 
       case 'defensiveWins':
-        if (values[key] <= 1) pts = 0;
-        else if (values[key] <= 5) pts = -10;
-        else if (values[key] <= 9) pts = -20;
-        else if (values[key] <= 14) pts = -30;
+        var defensiveWins = values[key];
+        if (defensiveWins <= 1) pts = 0;
+        else if (defensiveWins <= 5) pts = -10;
+        else if (defensiveWins <= 9) pts = -20;
+        else if (defensiveWins <= 14) pts = -30;
         else pts = -40;
         break;
 
 
       case 'faceDowns':
-        if (values[key] === 0) pts = 0;
-        else if (values[key] <= 10) pts = -2;
-        else if (values[key] <= 20) pts = -4;
-        else if (values[key] <= 30) pts = -6;
+        var faceDowns = values[key];
+        if (faceDowns === 0) pts = 0;
+        else if (faceDowns <= 10) pts = -2;
+        else if (faceDowns <= 20) pts = -4;
+        else if (faceDowns <= 30) pts = -6;
         else pts = -8;
         break;
 
       case 'fusions':
-        if (values[key] === 0) pts = +4;
-        else if (values[key] <= 4) pts = 0;
-        else if (values[key] <= 9) pts = -4;
-        else if (values[key] <= 14) pts = -8;
+        var fusions = values[key];
+        if (fusions === 0) pts = +4;
+        else if (fusions <= 4) pts = 0;
+        else if (fusions <= 9) pts = -4;
+        else if (fusions <= 14) pts = -8;
         else pts = -12;
         break;
 
       case 'equips':
-        if (values[key] === 0) pts = +4;
-        else if (values[key] <= 4) pts = 0;
-        else if (values[key] <= 9) pts = -4;
-        else if (values[key] <= 14) pts = -8;
+        var equips = values[key];
+        if (equips === 0) pts = +4;
+        else if (equips <= 4) pts = 0;
+        else if (equips <= 9) pts = -4;
+        else if (equips <= 14) pts = -8;
         else pts = -12;
         break;
 
       case 'magics':
-        if (values[key] === 0) pts = 2;
-        else if (values[key] <= 3) pts = -4;
-        else if (values[key] <= 6) pts = -8;
-        else if (values[key] <= 9) pts = -12;
+        var magics = values[key];
+        if (magics === 0) pts = 2;
+        else if (magics <= 3) pts = -4;
+        else if (magics <= 6) pts = -8;
+        else if (magics <= 9) pts = -12;
         else pts = -16;
         break;
 
       case 'traps':
-        if (values[key] === 0) pts = 2;
-        else if (values[key] <= 2) pts = -8;
-        else if (values[key] <= 4) pts = -16;
-        else if (values[key] <= 6) pts = -24;
+        var traps = values[key];
+        if (traps === 0) pts = 2;
+        else if (traps <= 2) pts = -8;
+        else if (traps <= 4) pts = -16;
+        else if (traps <= 6) pts = -24;
         else pts = -32;
         break;
 
-      case 'cardsUsed':
-        if (values[key] <= 8) pts = 15;
-        else if (values[key] <= 12) pts = 12;
-        else if (values[key] <= 32) pts = 0;
-        else if (values[key] <= 36) pts = -5;
+      case 'cardsRemaining':
+        var cardsUsed = 40 - values[key];
+        if (cardsUsed <= 8) pts = 15;
+        else if (cardsUsed <= 12) pts = 12;
+        else if (cardsUsed <= 32) pts = 0;
+        else if (cardsUsed <= 36) pts = -5;
         else pts = -7;
         break;
 
       case 'lifePoints':
-        if (values[key] >= 8000) pts = +6;
-        else if (values[key] >= 7000) pts = +4;
-        else if (values[key] >= 1000) pts = 0;
-        else if (values[key] >= 100) pts = -5;
+        var lifePoints = values[key];
+        if (lifePoints >= 8000) pts = +6;
+        else if (lifePoints >= 7000) pts = +4;
+        else if (lifePoints >= 1000) pts = 0;
+        else if (lifePoints >= 100) pts = -5;
         else pts = -7;
         break;
 
@@ -197,7 +207,7 @@ function YFMDuelCalc() {
     };
     return (
       <>
-        <Button variant="primary" onClick={handleDecrement}>-1</Button>
+        <Button variant="secondary" onClick={handleDecrement}>-</Button>
         <FloatingLabel label={`${label}`}>
           <Form.Control
             style={{ height: '75px' }}
@@ -209,9 +219,9 @@ function YFMDuelCalc() {
             isValid={isValid}
           />
         </FloatingLabel>
-        <Button variant="primary" onClick={handleIncrement}>+1</Button>
-        <InputGroup.Text>{
-          (calcPts(id) < 0) ? calcPts(id) : "+" + calcPts(id)
+        <Button variant="secondary" onClick={handleIncrement}>+</Button>
+        <InputGroup.Text style={{ width: '13%', paddingRight: '40px' }}>{
+          (calcPts(id) < 0) ? ("−" + ('0000' + Math.abs(calcPts(id))).slice(-2)) : "+" + (('00' + calcPts(id)).slice(-2))
         }</InputGroup.Text>
       </>
     );
@@ -259,8 +269,8 @@ function YFMDuelCalc() {
               isValid={isValid}
             />
           </FloatingLabel >
-          <InputGroup.Text>{
-            (calcPts(id) <= 0) ? calcPts(id) : "+" + calcPts(id)
+          <InputGroup.Text style={{ width: '13%', paddingRight: '40px' }}>{
+            (calcPts(id) < 0) ? ("−" + ('0000' + Math.abs(calcPts(id))).slice(-2)) : "+" + (('00' + calcPts(id)).slice(-2))
           }</InputGroup.Text>
         </InputGroup>
         <InputGroup>
@@ -413,12 +423,12 @@ function YFMDuelCalc() {
               <Col md={6}>
                 <InputGroup className='yfmcalc-input'>
                   <InputElement
-                    label="Cards Used"
-                    id="cardsUsed"
-                    value={values.cardsUsed}
-                    pts={calcPts('cardsUsed')}
+                    label="Cards Remaining"
+                    id="cardsRemaining"
+                    value={values.cardsRemaining}
+                    pts={calcPts('cardsRemaining')}
                     onChange={handleInputChange}
-                    isValid={values.cardsUsed >= 37}
+                    isValid={values.cardsRemaining < 4}
                   />
                 </InputGroup>
               </Col>
