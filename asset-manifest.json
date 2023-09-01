@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/yugioh-forbidden-memories-duel-calculator/static/css/main.f2892a20.css",
-    "main.js": "/yugioh-forbidden-memories-duel-calculator/static/js/main.79a5b83f.js",
+    "main.js": "/yugioh-forbidden-memories-duel-calculator/static/js/main.12d75560.js",
     "static/js/787.22699162.chunk.js": "/yugioh-forbidden-memories-duel-calculator/static/js/787.22699162.chunk.js",
     "static/media/logo.svg": "/yugioh-forbidden-memories-duel-calculator/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/yugioh-forbidden-memories-duel-calculator/index.html",
     "main.f2892a20.css.map": "/yugioh-forbidden-memories-duel-calculator/static/css/main.f2892a20.css.map",
-    "main.79a5b83f.js.map": "/yugioh-forbidden-memories-duel-calculator/static/js/main.79a5b83f.js.map",
+    "main.12d75560.js.map": "/yugioh-forbidden-memories-duel-calculator/static/js/main.12d75560.js.map",
     "787.22699162.chunk.js.map": "/yugioh-forbidden-memories-duel-calculator/static/js/787.22699162.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f2892a20.css",
-    "static/js/main.79a5b83f.js"
+    "static/js/main.12d75560.js"
   ]
 }
