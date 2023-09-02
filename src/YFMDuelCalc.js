@@ -4,390 +4,341 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from './logo.svg';
 import './App.css'
 
-function YFMCommonStrats() {
-    return (
-        <>
-            <h3>Common Strategies</h3>
-            <Container>
-                <Row>
-                    <Col>
-                        <h4 style={{ textAlign: 'center' }}>Method 1<br />(4 Effective Attacks)</h4>
-                        <ListGroup>
-                            <ListGroup.Item>Effective Attacks x4</ListGroup.Item>
-                            <ListGroup.Item>Fuses x15</ListGroup.Item>
-                            <ListGroup.Item>Pure Magic x1</ListGroup.Item>
-                            <ListGroup.Item>Trigger Trap x1</ListGroup.Item>
-                            <ListGroup.Item>Equip Magic x1</ListGroup.Item>
-                            <ListGroup.Item>Face Down x1</ListGroup.Item>
-                            <ListGroup.Item>Life Points &lt; 7000</ListGroup.Item>
-                            <ListGroup.Item>Cards Remaining &lt; 4</ListGroup.Item>
-                            <ListGroup.Item>9+ Turns Passed</ListGroup.Item>
-                        </ListGroup>
-                    </Col>
-                    <Col>
-                        <h4 style={{ textAlign: 'center' }}>Method 2<br />(4 Pure Magics)</h4>
-                        <ListGroup>
-                            <ListGroup.Item>Pure Magic x4</ListGroup.Item>
-                            <ListGroup.Item>Fuses x15</ListGroup.Item>
-                            <ListGroup.Item>Trigger Trap x1</ListGroup.Item>
-                            <ListGroup.Item>Equip Magic x1</ListGroup.Item>
-                            <ListGroup.Item>Face Down x1</ListGroup.Item>
-                            <ListGroup.Item>Life Points &lt; 7000</ListGroup.Item>
-                            <ListGroup.Item>Cards Remaining &lt; 4</ListGroup.Item>
-                            <ListGroup.Item>9+ Turns Passed</ListGroup.Item>
-                        </ListGroup>
-                    </Col>
-                    <Col>
-                        <h4 style={{ textAlign: 'center' }}>Method 3<br />(4 Equip Magics)</h4>
-                        <ListGroup>
-                            <ListGroup.Item>Equip Magic x4</ListGroup.Item>
-                            <ListGroup.Item>Fuses x15</ListGroup.Item>
-                            <ListGroup.Item>Pure Magic x1</ListGroup.Item>
-                            <ListGroup.Item>Trigger Trap x1</ListGroup.Item>
-                            <ListGroup.Item>Face Down x1</ListGroup.Item>
-                            <ListGroup.Item>Life Points &lt; 7000</ListGroup.Item>
-                            <ListGroup.Item>Cards Remaining &lt; 4</ListGroup.Item>
-                            <ListGroup.Item>9+ Turns Passed</ListGroup.Item>
-                        </ListGroup>
-                    </Col>
-                </Row>
-            </Container >
-        </>
-    );
-}
 
 function YFMDuelTables() {
     return (
         <>
-            <h3>Duel Point Charts</h3>
-            <p className="ms-5 me-5">Note: Chart values are <strong>inclusive</strong>!</p>
-            <Container style={{ textAlign: 'center' }}>
-                <Row>
-                    <Col className="me-1">
-                        <Table striped bordered hover style={{ width: '180px' }}>
-                            <thead>
-                                <tr>
-                                    <th>Turns Passed</th>
-                                    <th>Points Accrued</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>00-04</td>
-                                    <td>+12</td>
-                                </tr>
-                                <tr>
-                                    <td>05-08</td>
-                                    <td>+8</td>
-                                </tr>
-                                <tr>
-                                    <td>09-28</td>
-                                    <td>0</td>
-                                </tr>
-                                <tr>
-                                    <td>29-32</td>
-                                    <td>-8</td>
-                                </tr>
-                                <tr>
-                                    <td>33+</td>
-                                    <td>-12</td>
-                                </tr>
-                            </tbody>
-                        </Table>
-                    </Col>
+            <div className="yfmc-body" data-bs-theme="dark">
+                <h3 className="yfmc-title">Duel Point Charts</h3>
+                <p style={{ textAlign: 'center' }} className="ms-5 me-5">Note: Chart values are <strong>inclusive</strong>!</p>
+                <Container style={{ textAlign: 'center' }}>
+                    <Row>
+                        <Col className="me-1">
+                            <Table striped bordered hover style={{ width: '180px' }}>
+                                <thead>
+                                    <tr>
+                                        <th>Turns Passed</th>
+                                        <th>Points Accrued</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>00-04</td>
+                                        <td>+12</td>
+                                    </tr>
+                                    <tr>
+                                        <td>05-08</td>
+                                        <td>+8</td>
+                                    </tr>
+                                    <tr>
+                                        <td>09-28</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>29-32</td>
+                                        <td>-8</td>
+                                    </tr>
+                                    <tr>
+                                        <td>33+</td>
+                                        <td>-12</td>
+                                    </tr>
+                                </tbody>
+                            </Table>
+                        </Col>
 
-                    <Col className="ms-1 me-1">
-                        <Table striped bordered hover style={{ width: '180px' }}>
-                            <thead>
-                                <tr>
-                                    <th>Effective Attacks</th>
-                                    <th>Points Accrued</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>00-01</td>
-                                    <td>+4</td>
-                                </tr>
-                                <tr>
-                                    <td>02-03</td>
-                                    <td>+2</td>
-                                </tr>
-                                <tr>
-                                    <td>04-09</td>
-                                    <td>0</td>
-                                </tr>
-                                <tr>
-                                    <td>10-19</td>
-                                    <td>-2</td>
-                                </tr>
-                                <tr>
-                                    <td>20+</td>
-                                    <td>-4</td>
-                                </tr>
-                            </tbody>
-                        </Table>
-                    </Col>
-                    <Col className="ms-1 me-1">
-                        <Table striped bordered hover style={{ width: '180px' }}>
-                            <thead>
-                                <tr>
-                                    <th>Defensive Wins</th>
-                                    <th>Points Accrued</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>00-01</td>
-                                    <td>0</td>
-                                </tr>
-                                <tr>
-                                    <td>02-05</td>
-                                    <td>-10</td>
-                                </tr>
-                                <tr>
-                                    <td>06-09</td>
-                                    <td>-20</td>
-                                </tr>
-                                <tr>
-                                    <td>10-14</td>
-                                    <td>-30</td>
-                                </tr>
-                                <tr>
-                                    <td>15+</td>
-                                    <td>-40</td>
-                                </tr>
-                            </tbody>
-                        </Table>
-                    </Col>
-                    <Col className="ms-1">
-                        <Table striped bordered hover style={{ width: '180px' }}>
-                            <thead>
-                                <tr>
-                                    <th>Face Downs</th>
-                                    <th>Points Accrued</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>00-00</td>
-                                    <td>0</td>
-                                </tr>
-                                <tr>
-                                    <td>01-10</td>
-                                    <td>-2</td>
-                                </tr>
-                                <tr>
-                                    <td>11-20</td>
-                                    <td>-4</td>
-                                </tr>
-                                <tr>
-                                    <td>21-30</td>
-                                    <td>-6</td>
-                                </tr>
-                                <tr>
-                                    <td>31+</td>
-                                    <td>-40</td>
-                                </tr>
-                            </tbody>
-                        </Table>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col className="ms-1 me-1">
-                        <Table striped bordered hover style={{ width: '180px' }}>
-                            <thead>
-                                <tr>
-                                    <th>Fusions Initiated</th>
-                                    <th>Points Accrued</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>00-00</td>
-                                    <td>+4</td>
-                                </tr>
-                                <tr>
-                                    <td>01-04</td>
-                                    <td>0</td>
-                                </tr>
-                                <tr>
-                                    <td>05-09</td>
-                                    <td>-4</td>
-                                </tr>
-                                <tr>
-                                    <td>10-14</td>
-                                    <td>-8</td>
-                                </tr>
-                                <tr>
-                                    <td>15+</td>
-                                    <td>-12</td>
-                                </tr>
-                            </tbody>
-                        </Table>
-                    </Col>
-                    <Col className="ms-1 me-1">
-                        <Table striped bordered hover style={{ width: '180px' }}>
-                            <thead>
-                                <tr>
-                                    <th>Equip Magic</th>
-                                    <th>Points Accrued</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>00-00</td>
-                                    <td>+4</td>
-                                </tr>
-                                <tr>
-                                    <td>01-04</td>
-                                    <td>0</td>
-                                </tr>
-                                <tr>
-                                    <td>05-09</td>
-                                    <td>-4</td>
-                                </tr>
-                                <tr>
-                                    <td>10-14</td>
-                                    <td>-8</td>
-                                </tr>
-                                <tr>
-                                    <td>15+</td>
-                                    <td>-12</td>
-                                </tr>
-                            </tbody>
-                        </Table>
-                    </Col>
-                    <Col className="ms-1 me-1">
-                        <Table striped bordered hover style={{ width: '180px' }}>
-                            <thead>
-                                <tr>
-                                    <th>Pure Magic</th>
-                                    <th>Points Accrued</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>00-00</td>
-                                    <td>+2</td>
-                                </tr>
-                                <tr>
-                                    <td>01-03</td>
-                                    <td>-4</td>
-                                </tr>
-                                <tr>
-                                    <td>04-06</td>
-                                    <td>-8</td>
-                                </tr>
-                                <tr>
-                                    <td>07-09</td>
-                                    <td>-12</td>
-                                </tr>
-                                <tr>
-                                    <td>10+</td>
-                                    <td>-16</td>
-                                </tr>
-                            </tbody>
-                        </Table>
-                    </Col>
-                    <Col className="ms-1 me-1">
-                        <Table striped bordered hover style={{ width: '180px' }}>
-                            <thead>
-                                <tr>
-                                    <th>Trigger Trap</th>
-                                    <th>Points Accrued</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>00-00</td>
-                                    <td>+2</td>
-                                </tr>
-                                <tr>
-                                    <td>01-02</td>
-                                    <td>-8</td>
-                                </tr>
-                                <tr>
-                                    <td>03-04</td>
-                                    <td>-16</td>
-                                </tr>
-                                <tr>
-                                    <td>05-06</td>
-                                    <td>-24</td>
-                                </tr>
-                                <tr>
-                                    <td>7+</td>
-                                    <td>-32</td>
-                                </tr>
-                            </tbody>
-                        </Table>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col className="ms-1 me-1">
-                        <Table striped bordered hover style={{ width: '180px' }}>
-                            <thead>
-                                <tr>
-                                    <th>Cards Used</th>
-                                    <th>Points Accrued</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>00-08</td>
-                                    <td>+15</td>
-                                </tr>
-                                <tr>
-                                    <td>09-12</td>
-                                    <td>+12</td>
-                                </tr>
-                                <tr>
-                                    <td>13-32</td>
-                                    <td>0</td>
-                                </tr>
-                                <tr>
-                                    <td>33-36</td>
-                                    <td>-5</td>
-                                </tr>
-                                <tr>
-                                    <td>37+</td>
-                                    <td>-7</td>
-                                </tr>
-                            </tbody>
-                        </Table>
-                    </Col>
-                    <Col className="me-1">
-                        <Table striped bordered hover style={{ width: '180px' }}>
-                            <thead>
-                                <tr>
-                                    <th>LifePoints Left</th>
-                                    <th>Points Accrued</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>8000</td>
-                                    <td>+6</td>
-                                </tr>
-                                <tr>
-                                    <td>7000-7999</td>
-                                    <td>+4</td>
-                                </tr>
-                                <tr>
-                                    <td>0100-0999</td>
-                                    <td>-5</td>
-                                </tr>
-                                <tr>
-                                    <td>0000-0099</td>
-                                    <td>-7</td>
-                                </tr>
-                            </tbody>
-                        </Table>
-                    </Col>
-                    <Col />
-                    <Col />
-                </Row>
-            </Container >
+                        <Col className="ms-1 me-1">
+                            <Table striped bordered hover style={{ width: '180px' }}>
+                                <thead>
+                                    <tr>
+                                        <th>Effective Attacks</th>
+                                        <th>Points Accrued</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>00-01</td>
+                                        <td>+4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>02-03</td>
+                                        <td>+2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>04-09</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10-19</td>
+                                        <td>-2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>20+</td>
+                                        <td>-4</td>
+                                    </tr>
+                                </tbody>
+                            </Table>
+                        </Col>
+                        <Col className="ms-1 me-1">
+                            <Table striped bordered hover style={{ width: '180px' }}>
+                                <thead>
+                                    <tr>
+                                        <th>Defensive Wins</th>
+                                        <th>Points Accrued</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>00-01</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>02-05</td>
+                                        <td>-10</td>
+                                    </tr>
+                                    <tr>
+                                        <td>06-09</td>
+                                        <td>-20</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10-14</td>
+                                        <td>-30</td>
+                                    </tr>
+                                    <tr>
+                                        <td>15+</td>
+                                        <td>-40</td>
+                                    </tr>
+                                </tbody>
+                            </Table>
+                        </Col>
+                        <Col className="ms-1">
+                            <Table striped bordered hover style={{ width: '180px' }}>
+                                <thead>
+                                    <tr>
+                                        <th>Face Downs</th>
+                                        <th>Points Accrued</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>00-00</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>01-10</td>
+                                        <td>-2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>11-20</td>
+                                        <td>-4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>21-30</td>
+                                        <td>-6</td>
+                                    </tr>
+                                    <tr>
+                                        <td>31+</td>
+                                        <td>-8</td>
+                                    </tr>
+                                </tbody>
+                            </Table>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col className="ms-1 me-1">
+                            <Table striped bordered hover style={{ width: '180px' }}>
+                                <thead>
+                                    <tr>
+                                        <th>Fusions Initiated</th>
+                                        <th>Points Accrued</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>00-00</td>
+                                        <td>+4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>01-04</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>05-09</td>
+                                        <td>-4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10-14</td>
+                                        <td>-8</td>
+                                    </tr>
+                                    <tr>
+                                        <td>15+</td>
+                                        <td>-12</td>
+                                    </tr>
+                                </tbody>
+                            </Table>
+                        </Col>
+                        <Col className="ms-1 me-1">
+                            <Table striped bordered hover style={{ width: '180px' }}>
+                                <thead>
+                                    <tr>
+                                        <th>Equip Magic</th>
+                                        <th>Points Accrued</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>00-00</td>
+                                        <td>+4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>01-04</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>05-09</td>
+                                        <td>-4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10-14</td>
+                                        <td>-8</td>
+                                    </tr>
+                                    <tr>
+                                        <td>15+</td>
+                                        <td>-12</td>
+                                    </tr>
+                                </tbody>
+                            </Table>
+                        </Col>
+                        <Col className="ms-1 me-1">
+                            <Table striped bordered hover style={{ width: '180px' }}>
+                                <thead>
+                                    <tr>
+                                        <th>Pure Magic</th>
+                                        <th>Points Accrued</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>00-00</td>
+                                        <td>+2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>01-03</td>
+                                        <td>-4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>04-06</td>
+                                        <td>-8</td>
+                                    </tr>
+                                    <tr>
+                                        <td>07-09</td>
+                                        <td>-12</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10+</td>
+                                        <td>-16</td>
+                                    </tr>
+                                </tbody>
+                            </Table>
+                        </Col>
+                        <Col className="ms-1 me-1">
+                            <Table striped bordered hover style={{ width: '180px' }}>
+                                <thead>
+                                    <tr>
+                                        <th>Trigger Trap</th>
+                                        <th>Points Accrued</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>00-00</td>
+                                        <td>+2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>01-02</td>
+                                        <td>-8</td>
+                                    </tr>
+                                    <tr>
+                                        <td>03-04</td>
+                                        <td>-16</td>
+                                    </tr>
+                                    <tr>
+                                        <td>05-06</td>
+                                        <td>-24</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7+</td>
+                                        <td>-32</td>
+                                    </tr>
+                                </tbody>
+                            </Table>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col className="ms-1 me-1">
+                            <Table striped bordered hover style={{ width: '180px' }}>
+                                <thead>
+                                    <tr>
+                                        <th>Cards Used</th>
+                                        <th>Points Accrued</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>00-08</td>
+                                        <td>+15</td>
+                                    </tr>
+                                    <tr>
+                                        <td>09-12</td>
+                                        <td>+12</td>
+                                    </tr>
+                                    <tr>
+                                        <td>13-32</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>33-36</td>
+                                        <td>-5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>37+</td>
+                                        <td>-7</td>
+                                    </tr>
+                                </tbody>
+                            </Table>
+                        </Col>
+                        <Col className="me-1">
+                            <Table striped bordered hover style={{ width: '180px' }}>
+                                <thead>
+                                    <tr>
+                                        <th>LifePoints Left</th>
+                                        <th>Points Accrued</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>8000</td>
+                                        <td>+6</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7000-7999</td>
+                                        <td>+4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>0100-0999</td>
+                                        <td>-5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>0000-0099</td>
+                                        <td>-7</td>
+                                    </tr>
+                                </tbody>
+                            </Table>
+                        </Col>
+                        <Col />
+                        <Col />
+                    </Row>
+                </Container >
+            </div>
         </>
     );
 }
@@ -835,15 +786,12 @@ function YFMDuelCalc() {
 function YFMDuelCalcApp() {
     return (
         <>
-            <div className="yfmcalc-body" data-bs-theme="dark">
-                <h1 className="mt-3 yfmc-title">Yu-Gi-Oh Forbidden Memories</h1>
-                <h2 className="mt-3 yfmc-title">Duel Points Calculator</h2>
-                <p className="ms-5 me-5"> This calculator was created based on the information from this <a href="https://www.neoseeker.com/forums/3085/t2018541-calculating-duel-rank/">guide</a>. If there is anything you don't understand, please read it! </p>
-                <p className="ms-5 me-5">When you can no longer lose any more points for the given duel statistic, the form will turn green. You should work on your other duel statistics in this case. </p>
+            <div className="yfmc-body" data-bs-theme="dark">
+                <h3 className="yfmc-title">Duel Points Calculator</h3>
+                <p style={{ textAlign: 'center' }} className="ms-5 me-5"> This calculator was created based on the information from this <a href="https://www.neoseeker.com/forums/3085/t2018541-calculating-duel-rank/">guide</a>. If there is anything you don't understand, please read it! </p>
+                <p style={{ textAlign: 'center' }} className="ms-5 me-5">When you can no longer lose any more points for the given duel statistic, the form will turn green. You should work on your other duel statistics in this case. </p>
                 <hr style={{ width: '100%' }} />
                 <YFMDuelCalc />
-                <hr style={{ width: '100%' }} />
-                <YFMCommonStrats />
                 <hr style={{ width: '100%' }} />
                 <YFMDuelTables />
                 <hr style={{ width: '100%' }} />

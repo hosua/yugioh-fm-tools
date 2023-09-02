@@ -1,0 +1,68 @@
+@import '~font-awesome/css/font-awesome.min.css';
+
+.yfmc-body {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  color: white;
+}
+.yfmc-title {
+  text-align: center;
+}
+
+.yfmc-text {
+  margin-left: 15%;
+  margin-right: 15%;
+  text-align: left;
+  justify-content: center;
+}
+
+.yfmcalc-body {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.yfmcalc-input {
+  width: 100%;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.yfmcalc-btn {
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+
+/* Styling for the sorting button */
+.sort-button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #ffffff; /* Change the color as desired */
+  cursor: pointer;
+}
+
+/* Styling for the sorting button when active (ascending or descending) */
+.sort-button.asc .fa-sort-down,
+.sort-button.desc .fa-sort-up {
+    color: #ff9900; /* Change the color for active (ascending) state */
+}
+
+.sort-button:not(.asc):not(.desc):hover {
+    color: #084d8a; /* Change the color for not active (hover) state, e.g., blue */
+}

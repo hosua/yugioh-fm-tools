@@ -1,8 +1,8 @@
-## Yu-Gi-Oh Forbidden Memories Duel Points Calculator 
+## Yu-Gi-Oh Forbidden Memories Tools 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-This calculator was made using information based on this [guide](https://www.neoseeker.com/forums/3085/t2018541-calculating-duel-rank/). If anything on here is unclear, please watch that guide. To use the app, visit this [link](https://hosua.github.io/yugioh-forbidden-memories-duel-calculator/).
+This calculator was made using information based on this [guide](https://www.neoseeker.com/forums/3085/t2018541-calculating-duel-rank/). If anything on here is unclear, please watch that guide. To use the app, visit this [link](https://hosua.github.io/yugioh-fm-tools/).
 
 If you would like to host an instance of the application on your own, see the below commands.
 
