@@ -177,7 +177,6 @@ function YFMDatabase() {
                 header="Yu-Gi-Oh Forbidden Memories Database"
                 subheader="Cards Table"
                 post='yugioh-fm-tools/api/fetch-db'
-                filterButtons=''
             />
         </>
     );
