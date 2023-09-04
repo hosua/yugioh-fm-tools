@@ -7,7 +7,7 @@ You may have to adjust the queries to suit your database. Alternatively, just im
 
 First, log in to your mysql db and create the database:
 
-```
+```sql
 -- Create yugioh_db database
 CREATE DATABASE yugioh_db;
 ```
@@ -16,7 +16,20 @@ Then move all `.csv` data files into `/var/mysql/lib/yugioh_db/sql-data/`.
 
 Then you should be able to import all of the data into your database with the following commands:
 
-```
+```sql
+-- Create duelist table
+CREATE TABLE duelist (
+    ID INT PRIMARY KEY,
+    Name VARCHAR(50)
+);
+
+-- Load data into duelist table
+LOAD DATA INFILE 'yugioh_db/sql-data/duelist.csv'
+INTO TABLE duelist
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 LINES;
 
 -- Create card_drop table
 CREATE TABLE card_drop (
@@ -26,7 +39,7 @@ CREATE TABLE card_drop (
     Weight INT
 );
 
--- Load data into card_drop
+-- Load data into card_drop table
 LOAD DATA INFILE 'yugioh_db/sql-data/card_drop.csv'
 INTO TABLE card_drop
 FIELDS TERMINATED BY ','
@@ -39,8 +52,8 @@ IGNORE 1 LINES;
 ALTER TABLE card_drop
 ADD COLUMN ID INT AUTO_INCREMENT PRIMARY KEY FIRST;
 
--- Create table for card_info
-CREATE TABLE card_info (
+-- Create table for card_list
+CREATE TABLE card_list (
     ID INT PRIMARY KEY,
     Name VARCHAR(50),
     `Card Type` VARCHAR(50),
@@ -53,9 +66,9 @@ CREATE TABLE card_info (
     `Star Cost` INT
 );
 
--- Load data into card_info table
-LOAD DATA INFILE 'yugioh_db/sql-data/card_info.csv' 
-INTO TABLE card_info
+-- Load data into card_list table
+LOAD DATA INFILE 'yugioh_db/sql-data/card_list.csv' 
+INTO TABLE card_list
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
@@ -68,31 +81,4 @@ SET
     DEF = NULLIF(@DEF, ''),
     Code = NULLIF(@Code, ''),
     `Star Cost` = NULLIF(@`Star Cost`, '');
-
--- Create duelist_lookup table
-CREATE TABLE duelist_lookup (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
-    Name VARCHAR(255)
-);
-
--- Load data into duelist_lookup table
-LOAD DATA INFILE 'yugioh_db/sql-data/duelist_lookup.csv'
-INTO TABLE duelist_lookup
-FIELDS TERMINATED BY ',' 
-ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
-IGNORE 1 ROWS;
-
--- Create grade_lookup table
-CREATE TABLE grade_lookup (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
-    Grade VARCHAR(255)
-);
-
--- Insert into grade_lookup table
-INSERT INTO grade_lookup (ID, Grade) VALUES
-(1, 'S/A POW'),
-(2, 'S/A TEC'),
-(3, 'B/C/D POW/TEC');
-
 ```

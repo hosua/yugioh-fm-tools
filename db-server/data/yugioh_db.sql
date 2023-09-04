@@ -16,6 +16,14 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Current Database: `yugioh_db`
+--
+
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `yugioh_db` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+
+USE `yugioh_db`;
+
+--
 -- Table structure for table `card_drop`
 --
 
@@ -8709,13 +8717,13 @@ INSERT INTO `card_drop` VALUES
 UNLOCK TABLES;
 
 --
--- Table structure for table `card_info`
+-- Table structure for table `card_list`
 --
 
-DROP TABLE IF EXISTS `card_info`;
+DROP TABLE IF EXISTS `card_list`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `card_info` (
+CREATE TABLE `card_list` (
   `ID` int(11) NOT NULL,
   `Name` varchar(50) DEFAULT NULL,
   `Card Type` varchar(50) DEFAULT NULL,
@@ -8731,12 +8739,12 @@ CREATE TABLE `card_info` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `card_info`
+-- Dumping data for table `card_list`
 --
 
-LOCK TABLES `card_info` WRITE;
-/*!40000 ALTER TABLE `card_info` DISABLE KEYS */;
-INSERT INTO `card_info` VALUES
+LOCK TABLES `card_list` WRITE;
+/*!40000 ALTER TABLE `card_list` DISABLE KEYS */;
+INSERT INTO `card_list` VALUES
 (1,'Blue-eyes White Dragon','Monster','Dragon','Sun, Mars',8,3000,2500,89631139,999999),
 (2,'Mystical Elf','Monster','Spellcaster','Sun, Jupiter',4,800,2000,15025844,160),
 (3,'Hitotsu-me Giant','Monster','Beast-Warrior','Moon, Mars',4,1200,1000,76184692,70),
@@ -9459,7 +9467,70 @@ INSERT INTO `card_info` VALUES
 (720,'Mask of Shine & Dark','Monster','Spellcaster','Venus, Pluto',6,2000,1800,NULL,NULL),
 (721,'Dark Magic Ritual','Ritual','',NULL,NULL,NULL,NULL,NULL,NULL),
 (722,'Magician of Black Chaos','Monster','Spellcaster','Mercury, Mars',8,2800,2600,NULL,NULL);
-/*!40000 ALTER TABLE `card_info` ENABLE KEYS */;
+/*!40000 ALTER TABLE `card_list` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `duelist`
+--
+
+DROP TABLE IF EXISTS `duelist`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `duelist` (
+  `ID` int(11) NOT NULL,
+  `Name` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `duelist`
+--
+
+LOCK TABLES `duelist` WRITE;
+/*!40000 ALTER TABLE `duelist` DISABLE KEYS */;
+INSERT INTO `duelist` VALUES
+(1,'Simon Muran'),
+(2,'Teana 1'),
+(3,'Jono 1'),
+(4,'Villager 1'),
+(5,'Villager 2'),
+(6,'Villager 3'),
+(7,'Seto 1'),
+(8,'Heishin 1'),
+(9,'Rex Raptor'),
+(10,'Weevil Underwood'),
+(11,'Mai Valentine'),
+(12,'Bandit Keith'),
+(13,'Shadi'),
+(14,'Yami Bakura'),
+(15,'Pegasus'),
+(16,'Isis'),
+(17,'Kaiba'),
+(18,'Soldier Mage'),
+(19,'Jono 2'),
+(20,'Teana 2'),
+(21,'Low Ocean Mage'),
+(22,'High Mage Secmeton'),
+(23,'Low Forest Mage'),
+(24,'High Mage Anubisius'),
+(25,'Low Mountain Mage'),
+(26,'High Mage Atenza'),
+(27,'Low Desert Mage'),
+(28,'High Mage Martis'),
+(29,'Low Meadow Mage'),
+(30,'High Mage Kepura'),
+(31,'Labyrinth Mage'),
+(32,'Seto 2'),
+(33,'Guardian Sebek'),
+(34,'Guardian Neku'),
+(35,'Heishin 2'),
+(36,'Seto 3'),
+(37,'NiteMare'),
+(38,'DarkNite'),
+(39,'Duel Master K');
+/*!40000 ALTER TABLE `duelist` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -9471,4 +9542,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-03 19:21:20
+-- Dump completed on 2023-09-04  8:26:19

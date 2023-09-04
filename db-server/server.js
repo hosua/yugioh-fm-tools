@@ -4,26 +4,47 @@ const { connection, db_tables } = require('./db-config.js');
 const app = express();
 app.use(express.json());
 
-/*
-+---------------------+
-| Tables_in_yugioh_db |
-+---------------------+
-| card_drop           |
-| card_lookup         |
-| duelist_lookup      |
-| grade_lookup        |
-+---------------------+
-*/
-
 connection.connect((err) => {
     if (err) throw err;
     console.log('Connected to MySQL Server!');
 });
 
 // get messages from server
-app.post("/yugioh-fm-tools/api/fetch-db", (req, res) => {
-    console.log("Fetching messages from database...");
-    var query = `SELECT * FROM {db_tables.card_info}`;
+app.post("/yugioh-fm-tools/api/fetch-card-list", (req, res) => {
+    console.log("Fetching card list...");
+    var query = `SELECT * FROM ${db_tables.card_list}`;
+
+    connection.query(query, (err, results, fields) => {
+        if (err) {
+            console.log(err);
+            connection.end();
+            return res.status(500).json({ error: "Error fetching data" });
+        }
+
+        const data = JSON.parse(JSON.stringify(results)); // Parse the entire results array
+        res.json(data);
+    });
+});
+
+app.post("/yugioh-fm-tools/api/fetch-duelists", (req, res) => {
+    console.log("Fetching card drops...");
+    var query = `SELECT Name FROM ${db_tables.duelist}`;
+
+    connection.query(query, (err, results, fields) => {
+        if (err) {
+            console.log(err);
+            connection.end();
+            return res.status(500).json({ error: "Error fetching data" });
+        }
+
+        const data = JSON.parse(JSON.stringify(results)); // Parse the entire results array
+        res.json(data);
+    });
+});
+
+app.post("/yugioh-fm-tools/api/fetch-card-drops", (req, res) => {
+    console.log("Fetching card drops...");
+    var query = `SELECT * FROM WHERE Duelist=${req.duelist} ${db_tables.card_drop}`;
 
     connection.query(query, (err, results, fields) => {
         if (err) {

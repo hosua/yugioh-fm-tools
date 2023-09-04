@@ -9,8 +9,8 @@ function YFMDuelTables() {
     return (
         <>
             <div className="yfmc-body" data-bs-theme="dark">
-                <h3 className="yfmc-title">Duel Point Charts</h3>
-                <p style={{ textAlign: 'center' }} className="ms-5 me-5">Note: Chart values are <strong>inclusive</strong>!</p>
+                <h3 className="yfmc-title">Duel Point Calculation Tables</h3>
+                <br />
                 <Container style={{ textAlign: 'center' }}>
                     <Row>
                         <Col className="me-1">
@@ -631,6 +631,10 @@ function YFMDuelCalc() {
     return (
         <>
             <Container>
+                <h3 className="yfmc-title">Duel Points Calculator</h3>
+                <p> This calculator was created based on the information from this <a href="https://www.neoseeker.com/forums/3085/t2018541-calculating-duel-rank/">guide</a>. If there is anything you don't understand, please read it! </p>
+                <p>When you can no longer lose any more points for the given duel statistic, the form will turn green.</p>
+                <p>When the duel is over, be sure to click the reset button on the top right.</p>
                 <Row>
                     <Col>
                         <InputGroup className='yfmcalc-input'>
@@ -678,7 +682,7 @@ function YFMDuelCalc() {
                         <Col md={6}>
                             <InputGroup className='yfmcalc-input'>
                                 <InputElement
-                                    label="Defense Wins"
+                                    label="Defensive Wins"
                                     id='defensiveWins'
                                     value={values.defensiveWins}
                                     pts={calcPts('defensiveWins')}
@@ -783,15 +787,158 @@ function YFMDuelCalc() {
     );
 }
 
+function YFMDuelCalcHelp() {
+    return (
+        <>
+            <Container>
+                <h3 style={{ textAlign: 'center' }}> Duel Statistics & Rewards Help </h3>
+                <p>Since this may be a bit unclear, here are descriptions of the requirements for each duel statistic:</p>
+                <Table striped bordered hover>
+                    <thead>
+                        <tr>
+                            <th>Stat</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Turns Passed</td>
+                            <td>
+                                The number of turns that have passed <strong>for your opponent</strong>.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Effective Attacks</td>
+                            <td>
+                                When you attack your opponent's card, and deal
+                                life-point damage.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Defensive Wins</td>
+                            <td>
+                                When your opponent attacks a face-down card, and
+                                your card survives.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Face Downs</td>
+                            <td>
+                                When you play any card (Magic, Trap, or Monster)
+                                face down.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Fusions</td>
+                            <td>
+                                The number of cards you fused together (failed
+                                fusions do not count). Multiple fusions for a
+                                single card will count each individual fusion.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Magics</td>
+                            <td>
+                                When you activate a non-equip magic card.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Equips</td>
+                            <td>
+                                When you use a magic equip card on one of your
+                                monsters (it must be a valid equip).
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Traps</td>
+                            <td>
+                                When you set a face-down trap card, and it is
+                                then triggered by an opponent's attack (you
+                                can't manually flip the card yourself)
+                            </td>
+                        </tr>
+                    </tbody>
+                </Table>
+                <br />
+                <Row>
+                    <Col>
+
+                        <h4 className="ms-3">Grade Distribution Table</h4>
+                        <Table striped bordered hover style={{ width: '50%' }}>
+                            <thead>
+                                <tr>
+                                    <td>Grade</td>
+                                    <td>Points</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>90-99</td>
+                                    <td>S-POW</td>
+                                </tr>
+                                <tr>
+                                    <td>80-89</td>
+                                    <td>A-POW</td>
+                                </tr>
+                                <tr>
+                                    <td>70-79</td>
+                                    <td>B-POW</td>
+                                </tr>
+                                <tr>
+                                    <td>60-69</td>
+                                    <td>C-POW</td>
+                                </tr>
+                                <tr>
+                                    <td>50-59</td>
+                                    <td>D-POW</td>
+                                </tr>
+                                <tr>
+                                    <td>40-49</td>
+                                    <td>D-TEC</td>
+                                </tr>
+                                <tr>
+                                    <td>30-39</td>
+                                    <td>C-TEC</td>
+                                </tr>
+                                <tr>
+                                    <td>20-29</td>
+                                    <td>B-TEC</td>
+                                </tr>
+                                <tr>
+                                    <td>10-19</td>
+                                    <td>A-TEC</td>
+                                </tr>
+                                <tr>
+                                    <td>00-09</td>
+                                    <td>S-TEC</td>
+                                </tr>
+                            </tbody>
+                        </Table>
+                    </Col>
+                    <Col>
+                        <p>There are only <strong>three tiers</strong> of duel rewards, each tier will provide the same drop tables for <strong>all</strong> duelists. </p>
+                        <p>This is why getting an S-TEC is unnecessary and why you should be going for an A-TEC instead. </p>
+                        <ListGroup style={{ width: '50%' }} as="ol" numbered>
+                            <ListGroup.Item>S/A POW</ListGroup.Item>
+                            <ListGroup.Item>B/C/D POW/TEC</ListGroup.Item>
+                            <ListGroup.Item>S/A TEC</ListGroup.Item>
+                        </ListGroup>
+                    </Col>
+                </Row>
+            </Container>
+        </>
+    );
+}
+
 function YFMDuelCalcApp() {
     return (
         <>
             <div className="yfmc-body" data-bs-theme="dark">
-                <h3 className="yfmc-title">Duel Points Calculator</h3>
-                <p style={{ textAlign: 'center' }} className="ms-5 me-5"> This calculator was created based on the information from this <a href="https://www.neoseeker.com/forums/3085/t2018541-calculating-duel-rank/">guide</a>. If there is anything you don't understand, please read it! </p>
-                <p style={{ textAlign: 'center' }} className="ms-5 me-5">When you can no longer lose any more points for the given duel statistic, the form will turn green. You should work on your other duel statistics in this case. </p>
-                <hr style={{ width: '100%' }} />
+                <Container>
+                </Container>
                 <YFMDuelCalc />
+                <hr style={{ width: '100%' }} />
+                <YFMDuelCalcHelp />
                 <hr style={{ width: '100%' }} />
                 <YFMDuelTables />
                 <hr style={{ width: '100%' }} />
