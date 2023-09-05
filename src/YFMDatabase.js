@@ -11,8 +11,6 @@ function BootstrapTable(props) {
     const [sortCol, setSortCol] = useState(null);
     const [sortDir, setSortDir] = useState('asc');
 
-    const [queryFilter, setQueryFilter] = useState(props.filter)
-
     // Since re-rendering the table every onChange event is slow, we want to add
     // a delay from when the user stops typing before the render should occur.
     useEffect(() => {
@@ -42,6 +40,11 @@ function BootstrapTable(props) {
         // Clean up the timeout on unmount
         return () => clearTimeout(timeoutId);
     }, [dataFilter, data]);
+
+    useEffect(() => {
+        setData(props.data)
+        setFilteredData(props.data)
+    }, [props.data]);
 
     const handleDataFilter = (filter) => {
         setDataFilter(filter);
@@ -109,9 +112,7 @@ function BootstrapTable(props) {
 
     return (
         <>
-            <h1>{props.header}</h1>
-            <hr />
-            <h2>{props.subheader}</h2>
+            <h2>{props.header}</h2>
             <Container data-bs-theme="dark">
                 <FloatingLabel label="Search">
                     <Form.Control
@@ -171,9 +172,9 @@ function YFMDatabaseCardList() {
 
     return (
         <>
+            <br />
             <BootstrapTable
-                header="Yu-Gi-Oh Forbidden Memories Database"
-                subheader="Card List"
+                header="Card List Database"
                 data={data}
             />
         </>
@@ -184,7 +185,7 @@ function YFMDatabaseCardDrops() {
     const [duelists, setDuelists] = useState([]);
     const [data, setData] = useState([]);
     const [selectedDuelist, setSelectedDuelist] = useState('');
-    const [count, setCount] = useState(0);
+    const [dataTable, setDataTable] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -237,8 +238,6 @@ function YFMDatabaseCardDrops() {
         };
         if (selectedDuelist) {
             fetchData();
-            setCount(count + 1);
-            console.log(`count: ${count}`)
         }
 
     }, [selectedDuelist]);
@@ -252,14 +251,14 @@ function YFMDatabaseCardDrops() {
 
     // Fail-safe: Show a loading message or component when data is not loaded
     if (duelists.length === 0) {
-        return <p>Loading duelists...</p>;
+        return <p>Loading database... if this is taking too long, the database may be down. Sorry about that! </p>;
     }
 
     return (
         <>
             <Container data-bs-theme="dark">
-                <h1>Card Drops List</h1>
-                <h2 style={{ textAlign: 'center' }}>Select a Duelist</h2>
+                <h1>Card Drops Database</h1>
+                <h2>Select a Duelist</h2>
                 <ButtonGroup className="d-flex flex-wrap">
                     {duelists.map((entry, index) => (
                         <Button
@@ -273,17 +272,16 @@ function YFMDatabaseCardDrops() {
                     ))}
                 </ButtonGroup>
             </Container>
-            <Container>
-                {data.length === 0 ? (
-                    null
-                ) : (
-                    <BootstrapTable
-                        header="Yu-Gi-Oh Forbidden Memories Database"
-                        subheader="Card Drops"
-                        data={data}
-                    />
-                )}
-            </Container>
+            <br />
+            <br />
+            {data.length === 0 ? (
+                null
+            ) : (
+                <BootstrapTable
+                    header={selectedDuelist}
+                    data={data}
+                />
+            )}
         </>
     );
 }
