@@ -262,8 +262,8 @@ function YFMDatabaseCardDrops() {
     return (
         <>
             <Container data-bs-theme="dark">
-                <h1>Card Drops Database</h1>
-                <h2>Select a Duelist</h2>
+                <h2>Card Drops Database</h2>
+                <h3>Select a Duelist</h3>
                 <ButtonGroup className="d-flex flex-wrap">
                     {duelists.map((entry, index) => (
                         <Button
