@@ -15,7 +15,7 @@ const connection = mysql.createConnection({
 
 const db_tables = {
     card_drop: CARD_DROP_TABLE,
-    card_lookup: CARD_LIST_TABLE,
+    card_list: CARD_LIST_TABLE,
     duelist: DUELIST_TABLE
 };
 

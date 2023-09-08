@@ -5,7 +5,10 @@
   "main": "server.js",
   "scripts": {
     "start": "pm2 start server.js --name 'yugioh-db-server'",
-    "stop": "pm2 stop yugioh-db-server"
+    "stop": "pm2 stop yugioh-db-server",
+	"status": "pm2 status yugioh-db-server",
+	"logs": "pm2 logs yugioh-db-server",
+	"restart": "pm2 restart yugioh-db-server"
   },
   "keywords": [],
   "author": "",

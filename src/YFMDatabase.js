@@ -4,12 +4,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import './YFM.css'
 
+/* TODO: Maybe make this its own class in the future if I want to reuse this */
 function BootstrapTable(props) {
     const [data, setData] = useState(props.data || []); // data of the table
     const [filteredData, setFilteredData] = useState([]); // the filtered table
     const [dataFilter, setDataFilter] = useState(''); // string to filter by
     const [sortCol, setSortCol] = useState(null);
     const [sortDir, setSortDir] = useState('asc');
+    const [omitCols, setOmitCols] = useState(props.omitted || []);
 
     // Since re-rendering the table every onChange event is slow, we want to add
     // a delay from when the user stops typing before the render should occur.
@@ -81,34 +83,38 @@ function BootstrapTable(props) {
     });
 
     // Render the table headers and rows only when data is available
-    const columnHeaders = Object.keys(data[0]);
-    const tableHeaders = columnHeaders.map((col) => (
-        <th key={col}>
-            {col}
-            <Button
-                variant="link"
-                onClick={() => handleSort(col)}
-                style={{ width: '20px' }}
-            >
-                {sortCol === col ? (
-                    // The active col
-                    <i className={`fa fa-sort-${sortDir === 'asc' ? 'up' : 'down'}`}></i>
-                ) : (
-                    // The inactive col
-                    <i className={`sort-button fa fa-sort`}></i>
-                )
-                }
-            </Button>
-        </th >
-    ));
+    const columnHeaders = Object
+        .keys(data[0])
+        .filter((col) => !omitCols.includes(col));
+    const tableHeaders = columnHeaders
+        .map((col) => (
+            <th key={col}>
+                {col}
+                <Button
+                    variant="link"
+                    onClick={() => handleSort(col)}
+                    style={{ width: '20px' }}
+                >
+                    {sortCol === col ? (
+                        // The active col
+                        <i className={`fa fa-sort-${sortDir === 'asc' ? 'up' : 'down'}`}></i>
+                    ) : (
+                        // The inactive col
+                        <i className={`sort-button fa fa-sort`}></i>
+                    )
+                    }
+                </Button>
+            </th >
+        ));
 
-    const tableRows = sortedData.map((entry, index) => (
-        <tr key={index}>
-            {columnHeaders.map((key) => (
-                <td key={key}>{entry[key]}</td>
-            ))}
-        </tr>
-    ));
+    const tableRows = sortedData
+        .map((entry, index) => (
+            <tr key={index}>
+                {columnHeaders.map((key) => (
+                    <td key={key}>{entry[key]}</td>
+                ))}
+            </tr>
+        ));
 
     return (
         <>
@@ -280,6 +286,7 @@ function YFMDatabaseCardDrops() {
                 <BootstrapTable
                     header={selectedDuelist}
                     data={data}
+                    omitted={['ID', 'Duelist']}
                 />
             )}
         </>
