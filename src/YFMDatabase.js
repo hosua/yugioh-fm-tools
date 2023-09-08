@@ -178,7 +178,6 @@ function YFMDatabaseCardList() {
 
     return (
         <>
-            <br />
             <BootstrapTable
                 header="Card List Database"
                 data={data}

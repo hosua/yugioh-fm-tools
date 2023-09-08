@@ -24,6 +24,7 @@ function YFMNavbar() {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
+            <br />
         </>
     );
 }

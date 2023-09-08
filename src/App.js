@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { HashRouter, BrowserRouter, Route, Routes, Link } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 
 import { YFMDuelCommonStratsApp } from './YFMDuelCommonStrats.js';
 import { YFMDuelCalcApp } from './YFMDuelCalc.js';
