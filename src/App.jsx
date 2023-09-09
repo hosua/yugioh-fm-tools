@@ -1,14 +1,14 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 
-import { YFMDuelCommonStratsApp } from './YFMDuelCommonStrats.js';
-import { YFMDuelCalcApp } from './YFMDuelCalc.js';
-import { YFMDatabaseCardList } from './YFMDatabase.js';
-import { YFMDatabaseCardDrops } from './YFMDatabase.js';
-import { YFMNavbar } from './YFMNavbar.js';
-import { YFMGuardianStarChart } from './YFMGuardianStars.js';
+import { YFMDuelCommonStratsApp } from './YFMDuelCommonStrats.jsx';
+import { YFMDuelCalcApp } from './YFMDuelCalc.jsx';
+import { YFMDatabaseCardList } from './YFMDatabase.jsx';
+import { YFMDatabaseCardDrops } from './YFMDatabase.jsx';
+import { YFMNavbar } from './YFMNavbar.jsx';
+import { YFMGuardianStarChart } from './YFMGuardianStars.jsx';
 
 function App() {
   return (
