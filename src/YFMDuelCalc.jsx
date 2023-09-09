@@ -1,7 +1,6 @@
-import { ListGroup, Table, Row, Col, Button, FloatingLabel, InputGroup, Form, Container } from 'react-bootstrap'
+import { Image, ListGroup, Table, Row, Col, Button, FloatingLabel, InputGroup, Form, Container } from 'react-bootstrap'
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import logo from './logo.svg';
 import './App.css'
 
 
@@ -944,7 +943,11 @@ function YFMDuelCalcApp() {
                 <hr style={{ width: '100%' }} />
                 <div className="App">
                     <header className="App-header">
-                        <img src={logo} className="App-logo" alt="logo" />
+                        <Image 
+							className="App-logo" 
+							alt="react-logo" 
+							src="logo.svg" 
+						/>
                     </header>
                 </div>
             </div>
