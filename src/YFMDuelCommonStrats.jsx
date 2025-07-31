@@ -118,7 +118,7 @@ function YFMDuelCommonStratsApp() {
       fuses: 0,
       magic: 0,
       trap: 0,
-      equips: 0,
+      equip: 0,
       faceDown: 0,
       lifePoints: false,
       cardsRemaining: false,
@@ -455,11 +455,11 @@ function YFMDuelCommonStratsApp() {
                 label="Equips"
                 min="0"
                 max="5"
-                value={values.method3.equips}
+                value={values.method3.equip}
                 onChange={(e) =>
                   handleInputChange(
                     "method3",
-                    "equips",
+                    "equip",
                     parseInt(e.target.value),
                   )
                 }
