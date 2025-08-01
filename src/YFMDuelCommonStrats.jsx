@@ -66,6 +66,22 @@ function YFMCommonStrats() {
               <ListGroup.Item>9+ Turns Passed</ListGroup.Item>
             </ListGroup>
           </Col>
+          <Col>
+            <h4 style={{ textAlign: "center" }}>
+              Method 4<br />
+              (3 Traps)
+            </h4>
+            <ListGroup>
+              <ListGroup.Item>Trigger Trap x3</ListGroup.Item>
+              <ListGroup.Item>Fuses x15</ListGroup.Item>
+              <ListGroup.Item>Pure Magic x1</ListGroup.Item>
+              <ListGroup.Item>Equip Magic x1</ListGroup.Item>
+              <ListGroup.Item>Face Down x1</ListGroup.Item>
+              <ListGroup.Item>Life Points &lt; 7000</ListGroup.Item>
+              <ListGroup.Item>Cards Remaining &lt; 4</ListGroup.Item>
+              <ListGroup.Item>9+ Turns Passed</ListGroup.Item>
+            </ListGroup>
+          </Col>
         </Row>
       </Container>
     </>
@@ -115,6 +131,16 @@ function YFMDuelCommonStratsApp() {
       turnsPassed: false,
     },
     method3: {
+      fuses: 0,
+      magic: 0,
+      trap: 0,
+      equip: 0,
+      faceDown: 0,
+      lifePoints: false,
+      cardsRemaining: false,
+      turnsPassed: false,
+    },
+    method4: {
       fuses: 0,
       magic: 0,
       trap: 0,
@@ -315,19 +341,6 @@ function YFMDuelCommonStratsApp() {
             <h4>Method 2 (4 Magics) </h4>
             <InputGroup>
               <ValidateInput
-                label="Fuses"
-                min="0"
-                max="15"
-                value={values.method2.fuses}
-                onChange={(e) =>
-                  handleInputChange(
-                    "method2",
-                    "fuses",
-                    parseInt(e.target.value),
-                  )
-                }
-              />
-              <ValidateInput
                 label="Magic"
                 min="0"
                 max="4"
@@ -336,6 +349,19 @@ function YFMDuelCommonStratsApp() {
                   handleInputChange(
                     "method2",
                     "magic",
+                    parseInt(e.target.value),
+                  )
+                }
+              />
+              <ValidateInput
+                label="Fuses"
+                min="0"
+                max="15"
+                value={values.method2.fuses}
+                onChange={(e) =>
+                  handleInputChange(
+                    "method2",
+                    "fuses",
                     parseInt(e.target.value),
                   )
                 }
@@ -417,6 +443,19 @@ function YFMDuelCommonStratsApp() {
             <h4>Method 3 (5 Equips, Fastest Method) </h4>
             <InputGroup>
               <ValidateInput
+                label="Equips"
+                min="0"
+                max="5"
+                value={values.method3.equip}
+                onChange={(e) =>
+                  handleInputChange(
+                    "method3",
+                    "equip",
+                    parseInt(e.target.value),
+                  )
+                }
+              />
+              <ValidateInput
                 label="Fuses"
                 min="0"
                 max="15"
@@ -449,19 +488,6 @@ function YFMDuelCommonStratsApp() {
                 value={values.method3.trap}
                 onChange={(e) =>
                   handleInputChange("method3", "trap", parseInt(e.target.value))
-                }
-              />
-              <ValidateInput
-                label="Equips"
-                min="0"
-                max="5"
-                value={values.method3.equip}
-                onChange={(e) =>
-                  handleInputChange(
-                    "method3",
-                    "equip",
-                    parseInt(e.target.value),
-                  )
                 }
               />
               <ValidateInput
@@ -521,6 +547,108 @@ function YFMDuelCommonStratsApp() {
                 }}
               >
                 Reset Method 3
+              </Button>
+            </InputGroup>
+          </Form>
+        </Container>
+        <hr />
+        <Container>
+          {/* Method 4 Form */}
+          <Form>
+            <h4>Method 4 (3 Traps) </h4>
+            <InputGroup>
+              <ValidateInput
+                label="Trap"
+                min="0"
+                max="3"
+                value={values.method4.trap}
+                onChange={(e) =>
+                  handleInputChange("method4", "trap", parseInt(e.target.value))
+                }
+              />
+              <ValidateInput
+                label="Fuses"
+                min="0"
+                max="15"
+                value={values.method4.fuses}
+                onChange={(e) =>
+                  handleInputChange(
+                    "method4",
+                    "fuses",
+                    parseInt(e.target.value),
+                  )
+                }
+              />
+              <ValidateInput
+                label="Magic"
+                min="0"
+                max="1"
+                value={values.method4.magic}
+                onChange={(e) =>
+                  handleInputChange(
+                    "method4",
+                    "magic",
+                    parseInt(e.target.value),
+                  )
+                }
+              />
+              <ValidateInput
+                label="Face-Down"
+                min="0"
+                max="1"
+                value={values.method4.faceDown}
+                onChange={(e) =>
+                  handleInputChange(
+                    "method4",
+                    "faceDown",
+                    parseInt(e.target.value),
+                  )
+                }
+              />
+            </InputGroup>
+            <InputGroup className="mt-3">
+              <InputGroup.Text>Life Points &lt; 7000</InputGroup.Text>
+              <InputGroup.Checkbox
+                onChange={(e) =>
+                  handleInputChange("method4", "lifePoints", e.target.checked)
+                }
+                checked={values.method4.lifePoints}
+                className="me-3"
+              />
+              <InputGroup.Text>Cards Remaining &lt; 4</InputGroup.Text>
+              <InputGroup.Checkbox
+                onChange={(e) =>
+                  handleInputChange(
+                    "method4",
+                    "cardsRemaining",
+                    e.target.checked,
+                  )
+                }
+                checked={values.method4.cardsRemaining}
+                className="me-3"
+              />
+              <InputGroup.Text>9+ Turns Passed</InputGroup.Text>
+              <InputGroup.Checkbox
+                onChange={(e) =>
+                  handleInputChange("method4", "turnsPassed", e.target.checked)
+                }
+                checked={values.method4.turnsPassed}
+                className="me-3"
+              />
+              <Button
+                style={{ marginLeft: "auto" }}
+                className="rounded-start"
+                variant="danger"
+                onClick={() => {
+                  const confirmed = window.confirm(
+                    "Are you sure you want to reset Method 4?",
+                  );
+                  if (confirmed) {
+                    handleFormReset("method4");
+                  }
+                }}
+              >
+                Reset Method 4
               </Button>
             </InputGroup>
           </Form>
